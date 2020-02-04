@@ -3,6 +3,7 @@ import {View, Text, I18nManager} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import * as RNLocalize from 'react-native-localize';
 import i18n from 'i18n-js';
+import LanguageContext from '../languageContext';
 
 // const translationGetters = {
 //   // lazy requires (metro bundler does not support symlinks)
@@ -24,11 +25,14 @@ import i18n from 'i18n-js';
 //   i18n.locale = languageTag;
 // };
 class HomeScreen extends PureComponent {
+  static contextType = LanguageContext;
   navDetails = () => {
     const {navigation} = this.props;
     navigation.navigate('Details');
   };
   render() {
+    const {languages, setLanguage} = this.context;
+    debugger;
     return (
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <Text onPress={this.navDetails}>{i18n.t('hello')}</Text>

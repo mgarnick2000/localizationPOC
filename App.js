@@ -27,6 +27,7 @@ import {
 import AppNavigator from './navigation';
 import {createAppContainer} from 'react-navigation';
 import {translationGetters, setI18Config} from './screens/helper';
+import LanguageProvider from './Language';
 
 const AppContainer = createAppContainer(AppNavigator);
 
@@ -49,7 +50,12 @@ class App extends PureComponent {
     this.forceUpdate();
   };
   render() {
-    return <AppContainer />;
+    console.log(this.props);
+    return (
+      <LanguageProvider>
+        <AppContainer />
+      </LanguageProvider>
+    );
   }
 }
 
