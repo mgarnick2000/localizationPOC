@@ -48,9 +48,8 @@ class HomeScreen extends PureComponent {
   render() {
     return (
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        <Text onPress={this.navDetails}>Home Screen</Text>
+        <Text onPress={this.navDetails}>{translate('hello')}</Text>
         <Icon name="home" size={25} color="blue" />
-        <Text>{translate('hello')}</Text>
       </View>
     );
   }
