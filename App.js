@@ -15,6 +15,7 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
+import * as RNLocalize from 'react-native-localize';
 
 import {
   // Header,
@@ -25,10 +26,28 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import AppNavigator from './navigation';
 import {createAppContainer} from 'react-navigation';
+import {translationGetters, setI18Config} from './screens/helper';
 
 const AppContainer = createAppContainer(AppNavigator);
 
 class App extends PureComponent {
+  constructor(props) {
+    super(props);
+    setI18Config();
+  }
+
+  componentDidMount() {
+    RNLocalize.addEventListener('change', this.handleLocalizationChange);
+  }
+
+  componentWillUnmount() {
+    RNLocalize.removeEventListener('change', this.handleLocalizationChange);
+  }
+
+  handleLocalizationChange = () => {
+    setI18Config();
+    this.forceUpdate();
+  };
   render() {
     return <AppContainer />;
   }
