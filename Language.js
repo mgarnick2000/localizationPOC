@@ -2,9 +2,7 @@ import React, {Component} from 'react';
 import LanguageContext from './languageContext';
 import * as RNLocalize from 'react-native-localize';
 import PropTypes from 'prop-types';
-// import {I18nManager} from 'react-native';
-import {translationGetters, setI18Config} from './screens/helper';
-import {I18nManager} from 'react-native';
+import {setI18Config} from './screens/helper';
 
 class LanguageProvider extends Component {
   static propTypes = {
@@ -13,15 +11,15 @@ class LanguageProvider extends Component {
   constructor(props) {
     super(props);
     const i18n = setI18Config();
+    const languages = RNLocalize.getLocales();
     const setLanguage = lng => {
       i18n.locale = lng;
-      const rtlLanguage = RNLocalize.findBestAvailableLanguage(i18n.locale);
-      this.setState({i18n, currentLanguage: lng, isRTL: rtlLanguage.isRTL});
-      console.log(this.state);
+      const isRTL = languages.find(f => f.languageCode === lng).isRTL;
+      this.setState({i18n, currentLanguage: lng, isRTL});
     };
     this.state = {
       currentLanguage: i18n.locale,
-      languages: RNLocalize.getLocales() || [],
+      languages,
       i18n,
       setLanguage,
       isRTL: false,

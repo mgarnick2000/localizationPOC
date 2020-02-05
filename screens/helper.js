@@ -11,8 +11,6 @@ export const translationGetters = {
   fr: () => require('../translations/french.json'),
 };
 
-const translations = ['ar', 'en', 'fr'];
-
 export const translate = (key, config) => i18n.t(key, config);
 export const setI18Config = () => {
   const fallback = {languageTag: 'en', isRTL: false};

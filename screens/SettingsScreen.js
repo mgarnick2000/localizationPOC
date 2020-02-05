@@ -15,18 +15,15 @@ import {setI18Config} from './helper';
 class SettingsScreen extends PureComponent {
   static contextType = LanguageContext;
 
-
   changeLanguage = lng => {
     const {navigation} = this.props;
-    const {setLanguage, isRTL} = this.context;
-    console.log(this.context);
+    const {setLanguage} = this.context;
     setLanguage(lng);
-    I18nManager.forceRTL(isRTL);
     navigation.navigate('Home');
   };
 
   render() {
-    const {languages, setLanguage} = this.context;
+    const {languages} = this.context;
     const availableLanguages = languages.filter(
       f =>
         f.languageCode === 'ar' ||

@@ -32,27 +32,10 @@ import LanguageProvider from './Language';
 const AppContainer = createAppContainer(AppNavigator);
 
 class App extends PureComponent {
-  constructor(props) {
-    super(props);
-    setI18Config();
-  }
-
-  componentDidMount() {
-    RNLocalize.addEventListener('change', this.handleLocalizationChange);
-  }
-
-  componentWillUnmount() {
-    RNLocalize.removeEventListener('change', this.handleLocalizationChange);
-  }
-
-  handleLocalizationChange = () => {
-    setI18Config();
-    this.forceUpdate();
-  };
   render() {
     console.log(this.state);
     return (
-      <LanguageProvider>
+      <LanguageProvider value={this.state}>
         <AppContainer />
       </LanguageProvider>
     );
