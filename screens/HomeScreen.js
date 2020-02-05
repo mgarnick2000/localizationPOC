@@ -1,7 +1,6 @@
 import React, {PureComponent} from 'react';
-import {View, Text, I18nManager} from 'react-native';
+import {View, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import * as RNLocalize from 'react-native-localize';
 import i18n from 'i18n-js';
 import LanguageContext from '../languageContext';
 import ChangeLanguageBtn from '../components/ChangeLngBtn';
@@ -13,10 +12,10 @@ class HomeScreen extends PureComponent {
     navigation.navigate('Details');
   };
   render() {
-    const {languages} = this.context;
+    const {isRTL} = this.context;
     return (
       <>
-        <View style={{flex: 0, alignItems: 'flex-end'}}>
+        <View style={{flex: 0, alignItems: !isRTL ? 'flex-end' : 'flex-start'}}>
           <ChangeLanguageBtn name="language" />
         </View>
         <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>

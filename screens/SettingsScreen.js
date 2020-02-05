@@ -1,16 +1,6 @@
 import React, {PureComponent} from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  FlatList,
-  TouchableOpacity,
-  I18nManager,
-} from 'react-native';
+import {StyleSheet, View, Text, FlatList, TouchableOpacity} from 'react-native';
 import LanguageContext from '../languageContext';
-import i18n from 'i18n-js';
-import {I18Manager} from 'react-native';
-import {setI18Config} from './helper';
 
 class SettingsScreen extends PureComponent {
   static contextType = LanguageContext;
