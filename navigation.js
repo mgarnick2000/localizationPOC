@@ -11,18 +11,21 @@ const MainNavigator = createStackNavigator(
       screen: HomeScreen,
       navigationOptions: () => ({
         title: i18n.t('home', {order: 1}),
+        headerShown: false,
       }),
     },
     Details: {
       screen: DetailsScreen,
       navigationOptions: () => ({
         title: i18n.t('details', {order: 2}),
+        headerShown: false,
       }),
     },
     Settings: {
       screen: SettingsScreen,
       navigationOptions: () => ({
         title: i18n.t('settings', {order: 3}),
+        headerShown: false,
       }),
     },
   },

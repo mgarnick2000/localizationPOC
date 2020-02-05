@@ -32,7 +32,7 @@ class SettingsScreen extends PureComponent {
               <Text
                 style={styles.languageOptions}
                 onPress={() => this.changeLanguage(item.languageCode)}>
-                {item.languageCode}
+                {i18n.t(item.languageCode, {locale: item.languageCode})}
               </Text>
             </TouchableOpacity>
           )}
@@ -45,6 +45,7 @@ class SettingsScreen extends PureComponent {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    top: '10%',
   },
   language: {
     paddingTop: 10,

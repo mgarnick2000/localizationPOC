@@ -15,10 +15,14 @@ class HomeScreen extends PureComponent {
     const {isRTL} = this.context;
     return (
       <>
-        <View style={{flex: 0, alignItems: !isRTL ? 'flex-end' : 'flex-start'}}>
-          <ChangeLanguageBtn name="language" />
-        </View>
         <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+          <View
+            style={{
+              bottom: '35%',
+              alignSelf: !isRTL ? 'flex-end' : 'flex-start',
+            }}>
+            <ChangeLanguageBtn name="language" />
+          </View>
           <Text onPress={this.navDetails}>{i18n.t('hello')}</Text>
           <Icon name="home" size={25} color="blue" />
         </View>
