@@ -50,7 +50,7 @@ class App extends PureComponent {
     this.forceUpdate();
   };
   render() {
-    console.log(this.props);
+    console.log(this.state);
     return (
       <LanguageProvider>
         <AppContainer />
