@@ -1,4 +1,10 @@
 {
+  "home": "Accueil",
   "hello": "Salut le Monde!",
-  "details": "détails"
+  "details": "détails",
+  "change": "changer de langue",
+  "settings": "Réglages",
+  "en": "dans",
+  "ar": "avec",
+  "fr": "fr"
 }

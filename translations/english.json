@@ -1,4 +1,10 @@
 {
+  "home": "Home",
   "hello": "Hello World!",
-  "details": "Details Screen"
+  "details": "Details Screen",
+  "change": "Change Language",
+  "settings": "Settings",
+  "en": "en",
+  "ar": "ar",
+  "fr": "fr"
 }

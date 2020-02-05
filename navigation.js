@@ -3,14 +3,30 @@ import {createAppContainer} from 'react-navigation';
 import HomeScreen from './screens/HomeScreen';
 import DetailsScreen from './screens/DetailsScreen';
 import SettingsScreen from './screens/SettingsScreen';
+import i18n from 'i18n-js';
 
-const AppNavigator = createStackNavigator(
+const MainNavigator = createStackNavigator(
   {
-    Home: HomeScreen,
-    Details: DetailsScreen,
-    Settings: SettingsScreen,
+    Home: {
+      screen: HomeScreen,
+      navigationOptions: () => ({
+        title: i18n.t('home', {order: 1}),
+      }),
+    },
+    Details: {
+      screen: DetailsScreen,
+      navigationOptions: () => ({
+        title: i18n.t('details', {order: 2}),
+      }),
+    },
+    Settings: {
+      screen: SettingsScreen,
+      navigationOptions: () => ({
+        title: i18n.t('settings', {order: 3}),
+      }),
+    },
   },
   {initialRouteName: 'Home'},
 );
 
-export default createAppContainer(AppNavigator);
+export default createAppContainer(MainNavigator);

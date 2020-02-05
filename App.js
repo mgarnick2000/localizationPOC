@@ -7,36 +7,22 @@
  */
 
 import React, {PureComponent} from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
-import * as RNLocalize from 'react-native-localize';
+import {StyleSheet} from 'react-native';
 
-import {
-  // Header,
-  // LearnMoreLinks,
-  Colors,
-  // DebugInstructions,
-  // ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-import AppNavigator from './navigation';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
+import MainNavigator from './navigation';
 import {createAppContainer} from 'react-navigation';
-import {translationGetters, setI18Config} from './screens/helper';
 import LanguageProvider from './Language';
+import AppNavigator from './AppNavigator';
 
-const AppContainer = createAppContainer(AppNavigator);
+// const AppContainer = createAppContainer(MainNavigator);
 
 class App extends PureComponent {
   render() {
     console.log(this.state);
     return (
       <LanguageProvider value={this.state}>
-        <AppContainer />
+        <AppNavigator />
       </LanguageProvider>
     );
   }

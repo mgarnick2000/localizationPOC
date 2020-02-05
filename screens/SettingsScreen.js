@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react';
 import {StyleSheet, View, Text, FlatList, TouchableOpacity} from 'react-native';
 import LanguageContext from '../languageContext';
+import i18n from 'i18n-js';
 
 class SettingsScreen extends PureComponent {
   static contextType = LanguageContext;
@@ -23,7 +24,7 @@ class SettingsScreen extends PureComponent {
 
     return (
       <View style={styles.container}>
-        <Text style={styles.language}>Change Language</Text>
+        <Text style={styles.language}>{i18n.t('change')}</Text>
         <FlatList
           data={availableLanguages}
           renderItem={({item}) => (
