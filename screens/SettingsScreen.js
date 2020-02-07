@@ -14,7 +14,7 @@ class SettingsScreen extends PureComponent {
   };
 
   render() {
-    const {languages} = this.context;
+    const {languages, isRTL} = this.context;
     const availableLanguages = languages.filter(
       f =>
         f.languageCode === 'ar' ||
@@ -30,7 +30,11 @@ class SettingsScreen extends PureComponent {
           renderItem={({item}) => (
             <TouchableOpacity>
               <Text
-                style={styles.languageOptions}
+                style={[
+                  styles.languageOptions,
+                  // eslint-disable-next-line react-native/no-inline-styles
+                  {textAlign: isRTL ? 'right' : 'left'},
+                ]}
                 onPress={() => this.changeLanguage(item.languageCode)}>
                 {i18n.t(item.languageCode, {locale: item.languageCode})}
               </Text>
